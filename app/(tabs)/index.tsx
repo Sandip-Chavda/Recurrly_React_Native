@@ -35,6 +35,9 @@ export default function Index() {
       >
         Go to Cursor
       </Link>
+
+      <Text className="mt-5 text-5xl font-bold">Font Bold</Text>
+      <Text className="mt-5 text-5xl font-extrabold">Font Extra Bold</Text>
     </SafeAreaView>
   );
 }
