@@ -15,6 +15,7 @@ if (!publishableKey) {
 
 function RootLayoutContent() {
   const { isLoaded: authLoaded } = useAuth();
+
   const [fontsLoaded] = useFonts({
     "sans-regular": require("../assets/fonts/PlusJakartaSans-Regular.ttf"),
     "sans-bold": require("../assets/fonts/PlusJakartaSans-Bold.ttf"),
