@@ -1,0 +1,162 @@
+import InsightStatCard from "@/components/InsightStatCard";
+import { icons } from "@/constants/icons";
+import { styled } from "nativewind";
+import React from "react";
+import { Dimensions, Image, ScrollView, Text, View } from "react-native";
+import { LineChart } from "react-native-chart-kit";
+import { SafeAreaView as RNSafeAreaView } from "react-native-safe-area-context";
+
+const SafeAreaView = styled(RNSafeAreaView);
+
+const chartData = {
+  labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun"],
+  datasets: [
+    {
+      data: [14, 18, 12, 38, 30, 42],
+      color: (opacity = 1) => `rgba(234, 122, 83, ${opacity})`,
+      strokeWidth: 3,
+    },
+  ],
+};
+
+const chartConfig = {
+  backgroundGradientFrom: "#fff9e3",
+  backgroundGradientTo: "#fff9e3",
+  decimalPlaces: 0,
+  color: (opacity = 1) => `rgba(8, 17, 38, ${opacity})`,
+  labelColor: (opacity = 1) => `rgba(8, 17, 38, ${opacity})`,
+  propsForDots: {
+    r: "5",
+    fill: "#081126",
+  },
+  propsForBackgroundLines: {
+    stroke: "rgba(8, 17, 38, 0.08)",
+  },
+};
+
+const historyItems = [
+  {
+    id: "claude",
+    icon: icons.claude,
+    title: "Claude",
+    subtitle: "June 25, 12:00",
+    amount: "$9.84",
+    label: "per month",
+    backgroundColor: "#fde68a",
+  },
+  {
+    id: "canva",
+    icon: icons.canva,
+    title: "Canva",
+    subtitle: "June 30, 16:00",
+    amount: "$43.89",
+    label: "per month",
+    backgroundColor: "#c7f0e2",
+  },
+];
+
+const Insights = () => {
+  const screenWidth = Dimensions.get("window").width - 40;
+
+  return (
+    <SafeAreaView className="flex-1 bg-background">
+      <ScrollView
+        className="px-5"
+        contentContainerClassName="pb-28"
+        showsVerticalScrollIndicator={false}
+      >
+        <View className="pt-5">
+          <Text className="text-3xl font-sans-extrabold text-primary">
+            Insights
+          </Text>
+        </View>
+
+        <Text className="text-base mt-4 font-sans-semibold text-muted-foreground">
+          Monthly
+        </Text>
+
+        <View className="mt-4 w-full rounded-4xl shadow-lg shadow-black/5 overflow-hidden">
+          <View className="rounded-3xl bg-[#f6ecc9] overflow-hidden">
+            <LineChart
+              data={chartData}
+              width={screenWidth}
+              height={230}
+              chartConfig={chartConfig}
+              withInnerLines={true}
+              withOuterLines={true}
+              withVerticalLines={false}
+              fromZero={false}
+              withDots
+              bezier
+              transparent
+              style={{
+                borderRadius: 26,
+                overflow: "hidden",
+              }}
+            />
+          </View>
+        </View>
+
+        <View className="mt-7">
+          <InsightStatCard
+            title="Expenses"
+            value="$424.63"
+            delta="+12%"
+            variant="negative"
+            className="mb-6 w-full"
+          />
+        </View>
+
+        <View className="mt-6">
+          <View className="flex-row items-center justify-between">
+            <Text className="text-2xl font-sans-extrabold text-primary">
+              History
+            </Text>
+            <Text className="rounded-full border border-primary px-4 py-2 text-sm font-sans-semibold text-primary">
+              View all
+            </Text>
+          </View>
+
+          <View className="mt-4 space-y-4">
+            {historyItems.map((item) => (
+              <View
+                key={item.id}
+                className="rounded-3xl p-4 shadow-lg shadow-black/5"
+                style={{ backgroundColor: item.backgroundColor }}
+              >
+                <View className="flex-row items-center justify-between">
+                  <View className="flex-row items-center gap-4">
+                    <Image
+                      source={item.icon}
+                      className="h-12 w-12 rounded-3xl"
+                      resizeMode="contain"
+                    />
+                    <View>
+                      <Text className="text-lg font-sans-bold text-primary">
+                        {item.title}
+                      </Text>
+                      <Text className="text-sm font-sans-medium text-primary/70">
+                        {item.subtitle}
+                      </Text>
+                    </View>
+                  </View>
+
+                  <View className="items-end">
+                    <Text className="text-lg font-sans-bold text-primary">
+                      {item.amount}
+                    </Text>
+                    <Text className="text-sm font-sans-medium text-primary/70">
+                      {item.label}
+                    </Text>
+                  </View>
+                </View>
+              </View>
+            ))}
+          </View>
+        </View>
+      </ScrollView>
+    </SafeAreaView>
+  );
+};
+
+export default Insights;

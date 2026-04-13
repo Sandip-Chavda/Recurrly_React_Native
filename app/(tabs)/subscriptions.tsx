@@ -26,13 +26,14 @@ const Subscriptions = () => {
       <FlatList
         data={filteredSubscriptions}
         keyExtractor={(item) => item.id}
+        ListFooterComponent={<View className="pb-24" />}
         ListHeaderComponent={
-          <View className="px-5 pt-5">
+          <View className="pt-5">
             <Text className="text-3xl font-bold text-dark mb-5">
               Subscriptions
             </Text>
             <TextInput
-              className="bg-card rounded-xl px-4 py-3 text-dark mb-4"
+              className="bg-card rounded-xl px-4 py-3 text-dark mb-4 border-b"
               placeholder="Search subscriptions..."
               placeholderTextColor="#666"
               value={searchQuery}
