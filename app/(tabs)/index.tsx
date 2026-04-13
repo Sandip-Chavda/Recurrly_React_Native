@@ -10,7 +10,7 @@ import { formatCurrency } from "@/lib/utils";
 import { useUser } from "@clerk/expo";
 import dayjs from "dayjs";
 import { styled } from "nativewind";
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import { FlatList, Image, Pressable, Text, View } from "react-native";
 import { SafeAreaView as RNSafeAreaView } from "react-native-safe-area-context";
 
@@ -25,6 +25,39 @@ export default function Index() {
   const [isModalVisible, setIsModalVisible] = useState(false);
 
   const { subscriptions, addSubscription } = useSubscriptionStore();
+
+  // // Get upcoming subscriptions (active subscriptions with renewal date within next 7 days)
+  // const upcomingSubscriptions = useMemo(() => {
+  //   const now = dayjs();
+  //   const nextWeek = now.add(7, "days");
+  //   return subscriptions
+  //     .filter(
+  //       (sub) =>
+  //         sub.status === "active" &&
+  //         dayjs(sub.renewalDate).isAfter(now) &&
+  //         dayjs(sub.renewalDate).isBefore(nextWeek),
+  //     )
+  //     .sort((a, b) => dayjs(a.renewalDate).diff(dayjs(b.renewalDate)));
+  // }, [subscriptions]);
+
+  const upcomingSubscriptions = useMemo(() => {
+    const now = dayjs();
+    const nextWeek = now.add(7, "days");
+
+    return subscriptions
+      .filter(
+        (sub) =>
+          sub.status === "active" &&
+          sub.renewalDate &&
+          dayjs(sub.renewalDate).isAfter(now) &&
+          dayjs(sub.renewalDate).isBefore(nextWeek),
+      )
+      .map((sub) => ({
+        ...sub,
+        daysLeft: dayjs(sub.renewalDate!).diff(now, "day"),
+      }))
+      .sort((a, b) => dayjs(a.renewalDate).diff(dayjs(b.renewalDate)));
+  }, [subscriptions]);
 
   const displayName =
     user?.firstName ||
@@ -83,7 +116,8 @@ export default function Index() {
                 keyExtractor={(item) => item.id}
                 horizontal
                 showsHorizontalScrollIndicator={false}
-                data={UPCOMING_SUBSCRIPTIONS}
+                // data={upcomingSubscriptions} // use for real data
+                data={UPCOMING_SUBSCRIPTIONS} // demo data
                 renderItem={({ item }) => (
                   <UpcomingSubscriptionCard {...item} />
                 )}
