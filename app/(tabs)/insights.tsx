@@ -58,15 +58,11 @@ const Insights = () => {
           <View>
             <View className="pt-5">
               <Text className="text-3xl font-sans-extrabold text-primary">
-                Insights
+                Monthly Insights
               </Text>
             </View>
 
-            <Text className="text-base mt-4 font-sans-semibold text-muted-foreground">
-              Monthly
-            </Text>
-
-            <View className="mt-4 w-full rounded-4xl shadow-lg shadow-black/5 overflow-hidden">
+            <View className="mt-6 w-full rounded-4xl shadow-lg shadow-black/5 overflow-hidden">
               <View className="rounded-3xl bg-[#f6ecc9] overflow-hidden">
                 <LineChart
                   data={chartData}
@@ -79,6 +75,7 @@ const Insights = () => {
                   fromZero={false}
                   withDots
                   bezier
+                  transparent
                   style={{
                     borderRadius: 26,
                     overflow: "hidden",
