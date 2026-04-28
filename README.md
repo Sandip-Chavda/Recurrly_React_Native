@@ -15,11 +15,9 @@ onboarding flows, focusing on improving user experience and usability.
 ## 🎥 Demo
 
 <div align="center">
-  <b>Click to watch demo</b>
-  <!-- <a href="YOUR_VIDEO_LINK_HERE" target="_blank">
-    <img src="./assets/screens/OnboardingScreen.jpg" width="180"/>
-  </a>
-  <br/> -->
+  
+https://github.com/user-attachments/assets/1e9166ee-ed03-4021-829f-ed6d80d01fbb
+
 </div>
 
 ## 📱 Screenshots
@@ -126,8 +124,10 @@ onboarding flows, focusing on improving user experience and usability.
 ## ⚙️ Installation
 
 ```bash
-git clone https://github.com/your-username/your-repo.git
+git clone https://github.com/Sandip-Chavda/Recurrly_React_Native.git
 cd your-repo
+
+
 npm install
 npx expo start
 ```
