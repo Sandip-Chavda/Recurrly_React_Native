@@ -1,50 +1,153 @@
-# Welcome to your Expo app 👋
+# 📱 Recurrly - Subscription Management App
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+### 🚀 Overview
 
-## Get started
+Managing multiple subscriptions can quickly become overwhelming---users
+often lose track of recurring expenses and lack visibility into spending
+trends.
 
-1. Install dependencies
+Recurrly+ solves this by providing a clean, mobile-first interface to: -
+Track subscriptions - Categorize expenses - Visualize spending patterns
 
-   ```bash
-   npm install
-   ```
+This project extends a base implementation by adding analytics and
+onboarding flows, focusing on improving user experience and usability.
 
-2. Start the app
+## 🎥 Demo
 
-   ```bash
-   npx expo start
-   ```
+<div align="center">
+  <b>Click to watch demo</b>
+  <!-- <a href="YOUR_VIDEO_LINK_HERE" target="_blank">
+    <img src="./assets/screens/OnboardingScreen.jpg" width="180"/>
+  </a>
+  <br/> -->
+</div>
 
-In the output, you'll find options to open the app in a
+## 📱 Screenshots
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+<div align="center">
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+<table>
+  <tr>
+    <td align="center">
+      <b>Login</b><br/>
+      <img src="./assets/screens/LoginScreen.jpg" width="150"/>
+    </td>
+    <td align="center">
+      <b>Account Create</b><br/>
+      <img src="./assets/screens/CreateAccountScreen.jpg" width="150"/>
+    </td>
+    <td align="center">
+      <b>Onboarding</b><br/>
+      <img src="./assets/screens/OnboardingScreen.jpg" width="150"/>
+    </td>
+    <td align="center">
+      <b>Home</b><br/>
+      <img src="./assets/screens/HomeScreen.jpg" width="150"/>
+    </td>
+  </tr>
 
-## Get a fresh project
+  <tr>
+    <td align="center">
+      <b>Search</b><br/>
+      <img src="./assets/screens/SubscriptionSearchScreen.jpg" width="150"/>
+    </td>
+    <td align="center">
+      <b>Add Subscription</b><br/>
+      <img src="./assets/screens/NewSubscriptionScreen.jpg" width="150"/>
+    </td>
+    <td align="center">
+      <b>Insights</b><br/>
+      <img src="./assets/screens/InsightsScreen.jpg" width="150"/>
+    </td>
+    <td align="center">
+      <b>Profile</b><br/>
+      <img src="./assets/screens/ProfileScreen.jpg" width="150"/>
+    </td>
+  </tr>
+</table>
 
-When you're ready, run:
+</div>
+
+## 🏗️ Tech Stack
+
+<b>Frontend:</b> - React Native (Expo) - TypeScript - NativeWind
+
+<b>Backend & Services:</b> - Clerk (Authentication)
+
+<b>Other:</b> - Charting library - Expo Router
+
+## 🧠 Problem → Solution
+
+### Problem
+
+- Users forget active subscriptions
+- No clear visibility into monthly spending trends
+- Poor onboarding in many finance apps
+
+### Solution
+
+- Centralized subscription dashboard
+- Category-based organization
+- Insights screen for expense visualization
+- Onboarding flow for better user guidance
+
+## ✨ Features
+
+### 📦 Core Features (Base)
+
+- Add and manage subscriptions
+- Categorize expenses
+- Monthly / yearly billing support
+- Authentication & user profile
+- Clean, responsive UI
+
+---
+
+### 🆕 My Enhancements
+
+#### 📊 Insights Screen UI
+
+- Monthly expense trend visualization
+- Expense growth indicators
+- Structured history section
+- Focus on readability and data clarity
+
+#### 🧭 Onboarding Flow
+
+- Introduced first-time user experience
+- Improves usability and reduces friction
+
+#### ⚙️ UI Enhancements
+
+- Improved settings screen structure
+- Better component organization
+- Consistent design system usage
+
+## ⚙️ Installation
 
 ```bash
-npm run reset-project
+git clone https://github.com/your-username/your-repo.git
+cd your-repo
+npm install
+npx expo start
 ```
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+## 📈 What I Learned
 
-## Learn more
+- Extending existing codebases with new features
+- Designing consistent UI across multiple screens
+- Integrating analytics UI into mobile apps
+- Improving user onboarding experience
+- Structuring reusable components
 
-To learn more about developing your project with Expo, look at the following resources:
+## 🔮 Future Improvements
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+- Edit/Delete subscriptions
+- Push notifications for billing reminders
+- Backend expansion
+- Advanced filtering & search
 
-## Join the community
+## 🙏 Credits
 
-Join our community of developers creating universal apps.
-
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+Inspired by a tutorial by JS Mastery (Adrian Hajdin). Extended with additional UI
+features and improvements independently.
